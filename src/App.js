@@ -1,25 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { nanoid } from 'nanoid'
+import { setDatabase } from './database';
 
+function shortcode(){
+  const value= nanoid(10);;
+  return value 
+}
 function App() {
+  const test = shortcode();
+  const [userWebsite, setUserWebsite] = useState();
+  const [inputVar, setInputVar] = useState();
+  const returnText = (event) => {
+    event.preventDefault();
+    const newShortcode = shortcode();
+    setDatabase(newShortcode, inputVar, 10)
+    
+ }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <container> 
+      <h1>
+        Test Page
+      </h1>
+      <p> Website to shorten: </p>
+      <input id='userWebsite' type='text' placeholder='Enter Website' onChange={(e) => setInputVar(e.target.value)} />
+      <button onClick={returnText}>Submit</button>
+    </container>
   );
 }
+
 
 export default App;
