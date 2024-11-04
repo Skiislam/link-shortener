@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { setDatabase } from '../components/database';
 import { ref, get, onValue } from "firebase/database";
 import { db } from "../firebase";
-import { Navigate } from "react-router-dom";
 import { nanoid } from 'nanoid'
 import { useEffect, useState } from "react";
 
@@ -37,14 +36,13 @@ const handleGohome = () => {
     return (
        <div> 
         <h1>
-            SHORT CODE REDIRECT
+            SHORT CODE REDIRECT: 
             {userWebsite}
         </h1>
-        <p>Your Shortened link is: www.testshort.com/{shortCode}</p>
+        <p>Your Shortened link is: trimurlink.xyz/{shortCode}</p>
         <p> Ready to go back to home: </p>
         <button onClick={handleGohome}>Home</button>
 
         </div> 
     );
 }
-
